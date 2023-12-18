@@ -4,9 +4,16 @@
 %}
 
 
+%token ID
+% token EPSILON
+% token MOT_VIDE
 
-%token ID EPSILON MOT_VIDE OP_PLUS OP_POINT OP_ETOILE PAR_O PAR_F
+% token OP_PLUS
+% token OP_POINT
+% token OP_ETOILE
 
+% token PAR_O
+% token PAR_F
 
 
 %%
