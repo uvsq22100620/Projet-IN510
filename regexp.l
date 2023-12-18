@@ -24,11 +24,11 @@ id 			{lettre}*
 {id} 		{return ID;}
 E           {return EPSILON;}
 O           {return MOT_VIDE;}
+\*          {return OP_ETOILE;}
+\.          {return OP_POINT;}
 \+          {return OP_PLUS;}
-\.          {return OP_POINT}
-\*          {return OP_ETOILE}
-\(          {return PAR_O}
-\)          {return PAR_F}
+\(          {return PAR_O;}
+\)          {return PAR_F;}
 
 %%
 
@@ -37,12 +37,12 @@ int main (int argc, char*argv[]) {
 	int retour;
 	do {
 		retour = yylex();
-		if (retour==ID) printf("(ID, %d)\n");
+		if (retour==ID) printf("(ID)\n");
 		if (retour==EPSILON) printf("(Epsilon)\n");
 		if (retour==MOT_VIDE) printf("(Mot vide)\n");
         if (retour==OP_PLUS) printf("(Operateur +)\n");
-        if (retour==OP_POINT) printf("(.)\n");
-        if (retour==OP_ETOILE) printf("(*)\n");
+        if (retour==OP_POINT) printf("(Operateur .)\n");
+        if (retour==OP_ETOILE) printf("(Operateur *)\n");
         if (retour==PAR_O) printf("(Parenthese ouvrante)\n");
         if (retour==PAR_F) printf("(Parenthese fermante)\n");
 	} while (retour);
