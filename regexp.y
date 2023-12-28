@@ -24,19 +24,43 @@
 
 
 %%
-exp : A
-    | A OP_PLUS exp
 
-A   : B
-    | B OP_POINT C
+num_a int;
 
-B   : C
-    | C OP_ETOILE
+exp : A {
+            num_a ++;
+        }
+    | A OP_PLUS exp {
+                        num_a ++;
+                    }
 
-C   : ID
-    | EPSILON
-    | MOT_VIDE
-    | PAR_O exp PAR_F
+A   : B {
+            num_a ++;
+        }
+    | B OP_POINT C  {
+                        num_a ++;
+                        printf($<lecode>$, "A%d = concat_automate(A%d, A%d)\n", num_a, )
+                    }
+
+B   : C {
+            num_a ++;
+        }
+    | C OP_ETOILE   {
+                        num_a ++;
+                    }
+
+C   : ID {
+            num_a ++;
+        }
+    | EPSILON   {
+                    num_a ++;
+                }
+    | MOT_VIDE {
+                    num_a ++;
+                }
+    | PAR_O exp PAR_F   {
+                            num_a ++;
+                        }
 
 %%
 
