@@ -26,6 +26,7 @@
 %%
 
 num_a int;
+num_a = 0;
 
 exp : A {
             num_a ++;
