@@ -33,6 +33,7 @@ exp : A {
         }
     | A OP_PLUS exp {
                         num_a ++;
+                        printf($<lecode>$, "A%d = union(A%d, A%d)\n", num_a, )
                     }
 
 A   : B {
@@ -40,7 +41,7 @@ A   : B {
         }
     | B OP_POINT C  {
                         num_a ++;
-                        printf($<lecode>$, "A%d = concat_automate(A%d, A%d)\n", num_a, )
+                        printf($<lecode>$, "A%d = concatenation(A%d, A%d)\n", num_a, )
                     }
 
 B   : C {
@@ -52,13 +53,16 @@ B   : C {
 
 C   : ID {
             num_a ++;
+            printf($<lecode>$, "A%d = automate(lettre)\n", num_a, )
         }
     | EPSILON   {
                     num_a ++;
+                    printf($<lecode>$, "A%d = automate(E)\n", num_a, )
                 }
-    | MOT_VIDE {
-                    num_a ++;
-                }
+    #| MOT_VIDE {
+    #                num_a ++;
+    #                printf($<lecode>$, "A%d = automate(O)\n", num_a, )
+    #            }
     | PAR_O exp PAR_F   {
                             num_a ++;
                         }
