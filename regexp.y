@@ -4,6 +4,9 @@
 %}
 
 
+%token ID
+% token EPSILON
+% token MOT_VIDE
 
 %token ID
 % token EPSILON
@@ -16,6 +19,8 @@
 % token PAR_O
 % token PAR_F
 
+% token PAR_O
+% token PAR_F
 
 
 %%
